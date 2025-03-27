@@ -3,9 +3,9 @@ import axios from "axios";
 import TaskInput from "./components/TaskInput";
 import TaskList from "./components/TaskList";
 import "./App.css";
-
-const BACKEND_URL = "https://to-do-list-backend-fe9a.onrender.com:5000"; // Backend URL variable
-// https://to-do-list-backend-fe9a.onrender.com
+// Backend URL variable
+// const BACKEND_URL = "http://localhost:5000"; // for local development
+const BACKEND_URL = "https://to-do-list-backend-fe9a.onrender.com"; // for deployment
 
 function App() {
   const [tasks, setTasks] = useState([]);
