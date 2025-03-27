@@ -4,13 +4,16 @@ import TaskInput from "./components/TaskInput";
 import TaskList from "./components/TaskList";
 import "./App.css";
 
+const BACKEND_URL = "https://to-do-list-backend-fe9a.onrender.com:5000"; // Backend URL variable
+// https://to-do-list-backend-fe9a.onrender.com
+
 function App() {
   const [tasks, setTasks] = useState([]);
 
   // Fetch tasks from the backend
   useEffect(() => {
     axios
-      .get("http://localhost:5000/tasks")
+      .get(`${BACKEND_URL}/tasks`)
       .then((response) => setTasks(response.data))
       .catch((error) => console.error("Error fetching tasks:", error));
   }, []);
@@ -18,7 +21,7 @@ function App() {
   // Add a task to the backend
   const addTask = async (newTask) => {
     try {
-      const response = await axios.post("http://localhost:5000/tasks", {
+      const response = await axios.post(`${BACKEND_URL}/tasks`, {
         task: newTask,
       });
       setTasks((prevTasks) => [...prevTasks, response.data.task]);
@@ -30,7 +33,7 @@ function App() {
   // Delete a task from the backend
   const deleteTask = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/tasks/${id}`);
+      await axios.delete(`${BACKEND_URL}/tasks/${id}`);
       setTasks((prevTasks) => prevTasks.filter((task) => task._id !== id));
     } catch (error) {
       console.error("Error deleting task:", error);
