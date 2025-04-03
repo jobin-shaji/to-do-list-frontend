@@ -4,8 +4,8 @@ import TaskInput from "./components/TaskInput";
 import TaskList from "./components/TaskList";
 import "./App.css";
 // Backend URL variable
-const BACKEND_URL = "http://localhost:5000"; // development
-// const BACKEND_URL = "https://to-do-list-backend-fe9a.onrender.com"; // deployment
+// const BACKEND_URL = "http://localhost:5000"; // development
+const BACKEND_URL = "https://to-do-list-backend-fe9a.onrender.com"; // deployment
 
 function App() {
   const [tasks, setTasks] = useState([]);
